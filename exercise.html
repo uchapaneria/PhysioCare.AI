@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioCare AI - Exercises</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="medical-header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⚕️</span>
+            <span class="logo-text">PhysioCare.<span class="highlight-blue">AI</span></span>
+        </a>
+        
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="exercise.html" class="active">Exercises</a>
+            <a href="ai.html">AI Analyzer</a>
+        </nav>
+
+        <div class="header-cta">
+            <span class="emergency-text">📞 24/7: <strong>555-0199</strong></span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card hero-card" style="animation-delay: 0.1s;">
+            <h2 class="hero-title">Knee Physiotherapy</h2>
+            <p class="hero-subtitle">Follow along carefully. Maintain a slow, controlled pace.</p>
+            
+            <video controls>
+                <source src="videos/knee.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <p style="margin-top: 20px; font-weight: bold; color: var(--primary);">
+                Instructions: Bend your knee slowly and hold for 5 seconds. Repeat 10 times.
+            </p>
+        </div>
+    </div>
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3><span class="logo-icon">🤖</span> PhysioBot</h3>
+                <button class="close-chat" onclick="toggleChat()">✖</button>
+            </div>
+            
+            <div class="chat-body" id="chatBody">
+                <div class="message bot-message">
+                    Hello! I'm PhysioBot. How can I assist you with your physiotherapy routines today?
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="handleEnter(event)">
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+        
+        <button class="chat-toggle-btn" onclick="toggleChat()">
+            💬
+        </button>
+    </div>
+</body>
+</html>

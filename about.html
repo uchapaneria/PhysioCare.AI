@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioCare AI - About</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="medical-header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⚕️</span>
+            <span class="logo-text">PhysioCare.<span class="highlight-blue">AI</span></span>
+        </a>
+        
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="exercise.html">Exercises</a>
+            <a href="ai.html">AI Analyzer</a>
+        </nav>
+
+        <div class="header-cta">
+            <span class="emergency-text">📞 24/7: <strong>555-0199</strong></span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card hero-card" style="animation-delay: 0.1s;">
+            <h2 class="hero-title">About Hemophilia</h2>
+            <p class="hero-subtitle">Empowering patients through safe, guided, and consistent movement.</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="card info-card" style="animation-delay: 0.2s;">
+                <h3>🩸 What is Hemophilia?</h3>
+                <p>Hemophilia is a rare bleeding disorder where blood doesn't clot properly. This can lead to internal bleeding, most commonly in the joints and muscles, which can cause long-term damage if not managed.</p>
+            </div>
+            <div class="card info-card" style="animation-delay: 0.3s;">
+                <h3>💪 Why Physiotherapy?</h3>
+                <p>Building strong muscles around the joints acts as a natural "shock absorber," protecting them from everyday wear and tear and reducing the frequency of spontaneous joint bleeds.</p>
+            </div>
+            <div class="card info-card" style="animation-delay: 0.4s;">
+                <h3>⚠️ Safety First</h3>
+                <p>Exercises for hemophilia patients must be low-impact and precise. Pushing too hard or using incorrect form can trigger a bleed rather than prevent one.</p>
+            </div>
+            <div class="card info-card" style="animation-delay: 0.5s;">
+                <h3>🤖 How Our AI Helps</h3>
+                <p>Our built-in AI tracks your body's posture in real-time, ensuring you are performing routines with the correct form to minimize injury risk.</p>
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3><span class="logo-icon">🤖</span> PhysioBot</h3>
+                <button class="close-chat" onclick="toggleChat()">✖</button>
+            </div>
+            
+            <div class="chat-body" id="chatBody">
+                <div class="message bot-message">
+                    Hello! I'm PhysioBot. How can I assist you with your physiotherapy routines today?
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="handleEnter(event)">
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+        
+        <button class="chat-toggle-btn" onclick="toggleChat()">
+            💬
+        </button>
+    </div>
+</body>
+</html>

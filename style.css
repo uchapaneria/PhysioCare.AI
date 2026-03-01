@@ -1,0 +1,541 @@
+/* --- 1. Combined Color Palette --- */
+:root {
+    /* Brand Colors */
+    --primary: #4F46E5;       
+    --primary-dark: #3730A3;  
+    --accent: #06B6D4;        
+    
+    /* Medical Theme Colors */
+    --med-blue: #0A58CA;      
+    --med-light-blue: #E7F1FF;
+    --sterile-white: #FFFFFF; 
+    --text-dark: #2C3E50;
+    --text-light: #4b5563;
+    --surface: #ffffff;
+}
+
+/* --- 2. Global Setup --- */
+body {
+    margin: 0;
+    padding-top: 100px; /* Pushes content down so the sticky header doesn't cover it */
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #F5F7FA 0%, #E7F1FF 100%);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- 3. The Sticky Medical Header --- */
+.medical-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(10px); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
+    z-index: 1000; 
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.highlight-blue {
+    color: var(--med-blue);
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--med-blue);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--med-blue);
+}
+
+.main-nav a:hover::after, .main-nav a.active::after {
+    width: 100%;
+}
+
+.header-cta .emergency-text {
+    color: var(--med-blue);
+    font-size: 0.95rem;
+    background: var(--med-light-blue);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* --- 4. Layout & Cards --- */
+.container {
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    background: var(--surface);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb; 
+    opacity: 0;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    margin-bottom: 30px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    color: var(--primary);
+    line-height: 1.2;
+    margin-bottom: 15px;
+    margin-top: 0;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- 5. Buttons --- */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+    flex-wrap: wrap; 
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px; 
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2);
+}
+
+/* --- 6. Info Grid (For About Page) --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    text-align: left;
+    padding: 25px;
+}
+
+/* --- 7. Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    .main-nav, .header-cta {
+        display: none; /* Hides menu on very small screens temporarily */
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+}
+/* --- 8. Floating Chatbot UI --- */
+.chatbot-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000; /* Keeps it above everything else */
+}
+
+/* The Floating Button */
+.chat-toggle-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    font-size: 1.8rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    padding: 0;
+}
+
+.chat-toggle-btn:hover {
+    transform: scale(1.1); /* Slight pop effect on hover */
+}
+
+/* The Chat Box */
+.chat-window {
+    display: none; /* Hidden until clicked */
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 450px;
+    background: var(--surface);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUpFade 0.3s ease-out forwards;
+}
+
+.chat-window.active {
+    display: flex; /* JavaScript triggers this class to show the window */
+}
+
+.chat-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.close-chat {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* Chat Messages Area */
+.chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #f9fafb;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background: var(--med-light-blue);
+    color: var(--text-dark);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px; /* Flattens the corner to look like a speech bubble */
+}
+
+.user-message {
+    background: var(--primary);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+/* Input Area */
+.chat-footer {
+    padding: 15px;
+    background: var(--surface);
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-family: inherit;
+}
+
+.chat-footer input:focus {
+    border-color: var(--primary);
+}
+
+.send-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: none;
+}
+/* --- 9. AI Analyzer High-Tech Video UI --- */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    aspect-ratio: 4/3; /* Standard camera shape */
+    margin: 0 auto;
+    background: #000; /* Pitch black when the camera is off */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(6, 182, 212, 0.2); /* Soft cyan glow behind the player */
+    border: 2px solid rgba(10, 88, 202, 0.3);
+}
+
+/* Flips the video so it acts like a mirror (much better for users) */
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); 
+}
+
+/* The Sci-Fi Corner Reticles */
+.reticle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: var(--accent); /* Uses your bright Cyan color */
+    border-style: solid;
+    z-index: 10;
+    opacity: 0.8;
+}
+.top-left { top: 20px; left: 20px; border-width: 3px 0 0 3px; }
+.top-right { top: 20px; right: 20px; border-width: 3px 3px 0 0; }
+.bottom-left { bottom: 20px; left: 20px; border-width: 0 0 3px 3px; }
+.bottom-right { bottom: 20px; right: 20px; border-width: 0 3px 3px 0; }
+
+/* The Moving Holographic Scan Line */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(6, 182, 212, 0.8);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.8), 0 0 30px rgba(6, 182, 212, 0.4);
+    z-index: 5;
+    animation: scan-animation 3s linear infinite; /* Loops forever */
+}
+
+@keyframes scan-animation {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* Top "Tracking Active" Overlay */
+.ai-overlay {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+}
+
+/* Blinking Green Recording Dot */
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: #10B981; /* Bright Green */
+    border-radius: 50%;
+    animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8); }
+    70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Bottom Metric Readouts */
+.ai-metrics {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    z-index: 10;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    padding-top: 20px; /* Gradient backing makes text readable over bright video */
+}
+
+.ai-metrics .metric-value {
+    color: var(--accent); /* Cyan */
+    font-weight: 800;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+/* --- 10. Mission Statement Enhanced Styling --- */
+.mission-card {
+    border-top: 5px solid var(--primary); /* Adds a bold color bar at the top */
+    padding: 40px 50px;
+}
+
+.mission-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.mission-icon {
+    font-size: 2.2rem;
+}
+
+.mission-card h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2.4rem;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.mission-text {
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+/* The new Alert/Highlight Box */
+.highlight-box {
+    background: linear-gradient(to right, #fffbeb, #fef3c7); /* Soft, medical yellow/cream */
+    border-left: 5px solid #f59e0b; /* Amber warning accent */
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.highlight-box p {
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* Clean, modern font for the warning */
+    font-size: 1.1rem;
+    color: #92400e; /* Deep amber text */
+    line-height: 1.5;
+}
+
+.highlight-icon {
+    font-size: 1.8rem;
+}
+
+/* Mobile adjustments so it looks good on phones too */
+@media (max-width: 768px) {
+    .mission-card {
+        padding: 30px 20px;
+    }
+    .mission-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .highlight-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioCare AI - Analyzer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="medical-header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⚕️</span>
+            <span class="logo-text">PhysioCare.<span class="highlight-blue">AI</span></span>
+        </a>
+        
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="exercise.html">Exercises</a>
+            <a href="ai.html" class="active">AI Analyzer</a>
+        </nav>
+
+        <div class="header-cta">
+            <span class="emergency-text">📞 24/7: <strong>555-0199</strong></span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card hero-card" style="animation-delay: 0.1s;">
+            <h2 class="hero-title">AI Exercise Analyzer</h2>
+            <p class="hero-subtitle">Ensure you are well-lit and your full body is in the frame.</p>
+            
+            <button class="btn-primary" onclick="startCamera()" style="margin-bottom: 25px;">Start AI Scanner</button>
+    
+    <div class="video-container">
+        <div class="reticle top-left"></div>
+        <div class="reticle top-right"></div>
+        <div class="reticle bottom-left"></div>
+        <div class="reticle bottom-right"></div>
+
+        <video id="video" autoplay playsinline></video>
+
+        <div class="scan-line"></div>
+
+        <div class="ai-overlay">
+            <span class="status-dot"></span> AI TRACKING ACTIVE
+        </div>
+        
+        <div class="ai-metrics">
+            <div>Joint Alignment: <span class="metric-value">Analyzing...</span></div>
+            <div>Posture Score: <span class="metric-value">--</span></div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3><span class="logo-icon">🤖</span> PhysioBot</h3>
+                <button class="close-chat" onclick="toggleChat()">✖</button>
+            </div>
+            
+            <div class="chat-body" id="chatBody">
+                <div class="message bot-message">
+                    Hello! I'm PhysioBot. How can I assist you with your physiotherapy routines today?
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="handleEnter(event)">
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+        
+        <button class="chat-toggle-btn" onclick="toggleChat()">
+            💬
+        </button>
+    </div>
+</body>
+</html>

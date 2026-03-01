@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysioCare AI - Smart Rehab</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header class="medical-header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">⚕️</span>
+            <span class="logo-text">PhysioCare.<span class="highlight-blue">AI</span></span>
+        </a>
+        
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="exercise.html">Exercises</a>
+            <a href="ai.html">AI Analyzer</a>
+        </nav>
+
+        <div class="header-cta">
+            <span class="emergency-text">📞 24/7: <strong>555-0199</strong></span>
+        </div>
+    </header> 
+
+    <div class="container">
+        <div class="card hero-card" style="animation-delay: 0.1s;">
+            <h2 class="hero-title">Next-Generation Joint Care</h2>
+            <p class="hero-subtitle">Advanced, low-impact physiotherapy guidance for hemophilia patients, protected by real-time AI movement tracking.</p>
+            
+            <div class="hero-buttons">
+                <a href="ai.html"><button class="btn-primary">Launch AI Analyzer</button></a>
+                <a href="exercise.html"><button class="btn-secondary">View Routines</button></a>
+            </div>
+        </div>
+
+        <div class="card mission-card" style="animation-delay: 0.2s;">
+            <div class="mission-header">
+                <span class="mission-icon"></span>
+                <h2>Why This Platform Matters</h2>
+            </div>
+            
+            <p class="mission-text">For individuals living with hemophilia, maintaining joint health is not just about staying fit—it is a critical necessity. Without strong muscles to support joints like the knees, elbows, and ankles, patients are at a much higher risk of spontaneous, painful internal bleeds.</p>
+            
+            <div class="highlight-box">
+                <span class="highlight-icon"></span>
+                <p><strong>However, performing physical therapy incorrectly can sometimes cause the very injuries you are trying to prevent.</strong></p>
+            </div>
+            
+            <p class="mission-text">PhysioCare bridges the gap between clinical visits and at-home exercises. We provide specialized, low-impact routines and pair them with cutting-edge AI technology that watches your form. This ensures every stretch and bend is safe, precise, and effective.</p>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <div class="chatbot-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3><span class="logo-icon">🤖</span> PhysioBot</h3>
+                <button class="close-chat" onclick="toggleChat()">✖</button>
+            </div>
+            
+            <div class="chat-body" id="chatBody">
+                <div class="message bot-message">
+                    Hello! I'm PhysioBot. How can I assist you with your physiotherapy routines today?
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type your question..." onkeypress="handleEnter(event)">
+                <button class="send-btn" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+        
+        <button class="chat-toggle-btn" onclick="toggleChat()">
+            💬
+        </button>
+    </div>
+</body>
+</html>
